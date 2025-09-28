@@ -16,7 +16,7 @@ class SyslogHandler(socketserver.BaseRequestHandler):
             print("Failed to send to Discord:", e)
 
 if __name__ == "__main__":
-    HOST, PORT = "0.0.0.0", 1514  # safer than 514 on Windows
+    HOST, PORT = "0.0.0.0", 514  # safer than 514 on Windows
     with socketserver.UDPServer((HOST, PORT), SyslogHandler) as server:
         print("Syslog server listening on port", PORT)
         server.serve_forever()
